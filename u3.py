@@ -60,7 +60,7 @@ while True:
  
   f = urllib2.urlopen(url)
   result = f.read()  
-#  print (result)
+  print (result)
   f.close()
   temp = json.loads(result)
 #  print temp['status']
@@ -91,7 +91,8 @@ while True:
       print('light2 off -> ok')
       GPIO.output (r3, GPIO.LOW);
 
-  time.sleep(1)
+  print(' ')
+  time.sleep(2)
  
 
 GPIO.cleanup()
