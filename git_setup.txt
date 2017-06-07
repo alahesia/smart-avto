@@ -1,0 +1,16 @@
+git clone https://github.com/alahesia/smart-avto
+cd smart-avto
+
+git add .
+
+git status
+
+git commit
+git commit -m ""
+
+git push
+
+
+
+кешування даних (логіна і пароля)
+git config credential.helper store
