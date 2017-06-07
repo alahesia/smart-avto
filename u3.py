@@ -60,7 +60,7 @@ while True:
  
   f = urllib2.urlopen(url)
   result = f.read()  
-  print (result)
+#  print (result)
   f.close()
   temp = json.loads(result)
 #  print temp['status']
