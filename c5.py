@@ -43,6 +43,7 @@ def urlf(name,value):
 
 b=0
 t=0
+temp_r = 3
  
 while True:
 
@@ -70,34 +71,38 @@ while True:
   temp = json.loads(result)
 #  print temp['status']
 
+  if temp_r!=temp['r3']:
+    temp['r2']=0;
+
+#  print "temp_r",temp_r," s_r3", temp['r3']
+
+  temp_r = temp['r3']
+
   #r=input('Vvedit komandu: ')
   #r=int(r)
 
   if temp['status']=='ok':
 
+#   svitlo
     if temp['r1']:
-#      print('door opened -> ok')
       GPIO.output (r1, GPIO.HIGH)
     else:
-#      print('door closed -> ok')
       GPIO.output (r1, GPIO.LOW);
 
+#   povorotu
     if temp['r2']:
-#      print('light on -> ok')
 #     blink led :)
-      if b==1:
-        GPIO.output (r2, GPIO.HIGH)
-      else:
-        GPIO.output (r2, GPIO.LOW);  
+      GPIO.output (r2, GPIO.HIGH)
     else:
-#      print('light off -> ok')
-      GPIO.output (r2, GPIO.LOW);
+      if b==1:
+        GPIO.output (r2, GPIO.LOW)
+      else:
+        GPIO.output (r2, GPIO.HIGH);
 
+#   dveri
     if temp['r3']:
-#      print('light2 on -> ok')
       GPIO.output (r3, GPIO.HIGH)
     else:
-#      print('light2 off -> ok')
       GPIO.output (r3, GPIO.LOW);
 
 #  print(' ')
